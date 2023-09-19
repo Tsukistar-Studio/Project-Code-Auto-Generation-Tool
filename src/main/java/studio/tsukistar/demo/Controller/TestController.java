@@ -9,7 +9,7 @@ public class TestController {
     @GetMapping("/hello")
     public String hello() {
         String hellotext;
-        hellotext = "Hello SpringBoot";
+        hellotext = Integer.toString(100, 34);
         return hellotext;
     }
 }

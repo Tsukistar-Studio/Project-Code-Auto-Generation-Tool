@@ -16,9 +16,12 @@ repositories {
 }
 
 dependencies {
+	// SpringBoot启动器
 	implementation 'org.springframework.boot:spring-boot-starter'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// jackson-dataformat-xml
+	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.15.2'
 }
 
 tasks.named('test') {
