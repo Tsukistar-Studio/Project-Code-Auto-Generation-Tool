@@ -1,0 +1,8 @@
+{
+    "properties": [
+        {
+            "name": "spring.http.converters.enabled",
+            "type": "java.lang.String",
+            "description": "Description for spring.http.converters.enabled."
+    }
+] }

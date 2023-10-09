@@ -22,6 +22,11 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	// jackson-dataformat-xml
 	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.15.2'
+	// FastJson 2
+	implementation 'com.alibaba.fastjson2:fastjson2:2.0.40'
+	// SpringBoot的MySQL连接器for 8.0.33版本
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc:3.1.4'
+	implementation 'com.mysql:mysql-connector-j:8.0.33'
 }
 
 tasks.named('test') {
