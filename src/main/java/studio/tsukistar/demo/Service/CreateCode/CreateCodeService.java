@@ -1,5 +1,5 @@
 package studio.tsukistar.demo.Service.CreateCode;
 
 public interface CreateCodeService {
-    public String createCode();
+    String createCode(String name, String category);
 }

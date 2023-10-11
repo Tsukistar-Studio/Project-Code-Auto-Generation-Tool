@@ -7,20 +7,20 @@ import studio.tsukistar.demo.Service.CreateResponse.CreateResponseService;
 
 @RestController
 @RequestMapping("/project")
-public class CodeInformationController {
+public class ProjectInformationController {
     private final CreateResponseService responseService;
-    public CodeInformationController(CreateResponseService responseService) {
+
+    public ProjectInformationController(CreateResponseService responseService) {
         this.responseService = responseService;
     }
 
     @PostMapping("/code/create")
     public JSONObject createProjectCode(@RequestBody JSONObject jsonData) {
-        return responseService.createJsonResponse(jsonData);
+        return responseService.createJsonResponse("新建编码", jsonData);
     }
     
     @PostMapping("/name/update")
     public JSONObject updateProjectName(@RequestBody JSONObject jsonData) {
-        // 处理接收到的 JSON 数据
-        return responseService.createJsonResponse(jsonData);
+        return responseService.createJsonResponse("更新名称", jsonData);
     }
 }

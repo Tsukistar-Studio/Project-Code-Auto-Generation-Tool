@@ -2,32 +2,40 @@ package studio.tsukistar.demo.Service.CreateResponse;
 
 import com.alibaba.fastjson2.JSONObject;
 import org.springframework.stereotype.Service;
+import java.sql.Timestamp;
+import java.util.Date;
 
 import studio.tsukistar.demo.Entity.ProjectInformationEntity;
-import studio.tsukistar.demo.Dao.ProjectInformationDao;
+import studio.tsukistar.demo.Service.CreateCode.CreateCodeService;
+import studio.tsukistar.demo.Service.UpdateName.UpdateNameService;
 
 @Service
 public class CreateResponseServiceJsonImpl implements CreateResponseService{
-    public JSONObject createJsonResponse(JSONObject jsonObject) {
-        String code = "";
+
+    private final CreateCodeService createCodeService;
+    private final UpdateNameService updateNameService;
+
+    public CreateResponseServiceJsonImpl(CreateCodeService createCodeService, UpdateNameService updateNameService) {
+        this.createCodeService = createCodeService;
+        this.updateNameService = updateNameService;
+    }
+    @Override
+    public JSONObject createJsonResponse(String operation,JSONObject jsonObject) {
         String name = jsonObject.getString("name");
         String category = jsonObject.getString("category");
-        if(category == "QT") {
-            
-        } else if(category == ""){
-            
+        String code;
+
+        if(operation.equals("新建编码")) {
+            code = createCodeService.createCode(name, category);
         } else {
-            
+            code = jsonObject.getString("code");
+            updateNameService.updateName(code, name, category);
         }
-        
-        ProjectInformationEntity projectInformation = new ProjectInformationEntity();
-        projectInformation.setOperation("新增");
         
         JSONObject responseJsonObject = new JSONObject();
         responseJsonObject.put("code",code);
         responseJsonObject.put("name",name);
         responseJsonObject.put("category",category);
-        
         return responseJsonObject;
     }
 }

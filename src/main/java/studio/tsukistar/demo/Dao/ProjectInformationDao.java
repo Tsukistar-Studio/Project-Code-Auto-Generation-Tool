@@ -8,17 +8,12 @@ import studio.tsukistar.demo.Entity.ProjectInformationEntity;
 public class ProjectInformationDao {
     private final JdbcTemplate jdbcTemplate = new JdbcTemplate();
 
-    public void addProjectCode(ProjectInformationEntity proInfo) { //新增项目编码
+    public void addOperationInformation(ProjectInformationEntity proInfo) { //新增项目编码
         jdbcTemplate.update("insert into project_information values (?,?,?,?,?)",
                             proInfo.getOperation(),
                             proInfo.getCode(),
                             proInfo.getName(),
                             proInfo.getCategory(),
                             proInfo.getTime());
-    }
-    public void updateProjectInformation(ProjectInformationEntity proInfo) { //更新项目名称
-        jdbcTemplate.update("update project_information set name = ? where code = ?",
-                            proInfo.getName(),
-                            proInfo.getCode());
     }
 }
