@@ -12,7 +12,7 @@ public class ProjectInformationDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public void addOperationInformation(ProjectInformationEntity proInfo) { //新增项目编码
+    public void addOperationInformation(ProjectInformationEntity proInfo) { //新增操作记录
         jdbcTemplate.update("insert into project_information (operation, code, name, category, operation_time) values (?,?,?,?,?)",
                             proInfo.getOperation(),
                             proInfo.getCode(),
