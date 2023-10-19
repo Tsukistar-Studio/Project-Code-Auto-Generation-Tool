@@ -17,10 +17,10 @@ public class ProjectInformationDao {
         jdbcTemplate.update(sql, proInfo.getOperation(), proInfo.getCode(), proInfo.getName(), proInfo.getCategory(), proInfo.getTime());
     }
 
-    public String selectLatestProjectCode() {
+    public String selectLatestProjectCode(String category) {
         String code;
-        String sql = "select code from project_information where operation = '新建编码' order by id desc";
-        code = jdbcTemplate.queryForObject(sql, String.class);
+        String sql = "select code from project_information where operation = '新建编码' and category = ? order by id desc limit 1";
+        code = jdbcTemplate.queryForObject(sql, new Object[]{category},String.class);
         return code;
     }
 }
