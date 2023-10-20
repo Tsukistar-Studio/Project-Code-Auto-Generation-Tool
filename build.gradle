@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'studio.tsukistar'
-version = '0.0.1-SNAPSHOT'
+version = '1.0.0-SNAPSHOT'
 
 java {
 	sourceCompatibility = '17'
@@ -20,8 +20,6 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	// jackson-dataformat-xml
-	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.15.2'
 	// FastJson 2
 	implementation 'com.alibaba.fastjson2:fastjson2:2.0.40'
 	// SpringBoot的MySQL连接器for 8.0.33版本
